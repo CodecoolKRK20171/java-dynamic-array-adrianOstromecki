@@ -42,12 +42,20 @@ public class DynamicIntArray {
         for (int i=0; i<size; i++){
             if (array[i] == value){
                 isItemFound = true;
+                delete(i);
             }
         }
 
         if (!isItemFound){
             throw new ArrayIndexOutOfBoundsException();
         }
+    }
+
+    private void delete(int index) {
+        for (int i=index; i<size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
     }
 
     public void insert(int index, int value) {
