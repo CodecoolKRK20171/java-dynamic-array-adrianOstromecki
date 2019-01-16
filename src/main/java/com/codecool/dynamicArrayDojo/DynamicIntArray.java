@@ -37,7 +37,17 @@ public class DynamicIntArray {
     }
 
     public void remove(int value) {
+        boolean isItemFound = false;
 
+        for (int i=0; i<size; i++){
+            if (array[i] == value){
+                isItemFound = true;
+            }
+        }
+
+        if (!isItemFound){
+            throw new ArrayIndexOutOfBoundsException();
+        }
     }
 
     public void insert(int index, int value) {
