@@ -51,7 +51,21 @@ public class DynamicIntArray {
     }
 
     public void insert(int index, int value) {
+        if (index >= size) {
+            add(value);
+            return;
+        }
 
+        if (size >= array.length) {
+            expandArray();
+        }
+
+        for (int i=size - 1; i>=index; i--) {
+            array[i + 1] = array[i];
+        }
+
+        array[index] = value;
+        size++;
     }
 
     @Override
